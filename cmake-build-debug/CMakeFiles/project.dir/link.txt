@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/project.dir/main.cpp.o CMakeFiles/project.dir/Lexer.cpp.o CMakeFiles/project.dir/Command.cpp.o CMakeFiles/project.dir/OpenServerCommand.cpp.o  -o project 
