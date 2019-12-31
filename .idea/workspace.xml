@@ -11,7 +11,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81fd1958-52fb-4c99-b0e3-5157815c59ed" name="Default Changelist" comment="" />
+    <list default="true" id="81fd1958-52fb-4c99-b0e3-5157815c59ed" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +25,11 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1VWBx5pYSHCmCZ0OND3dmTDLKFW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -29,6 +37,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="Current File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -67,18 +76,38 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1577359213286</updated>
-      <workItem from="1577359214900" duration="29699000" />
+      <workItem from="1577359214900" duration="30431000" />
     </task>
+    <task id="LOCAL-00001" summary=".gitignore added">
+      <created>1577817608915</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1577817608916</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value=".gitignore added" />
+    <option name="LAST_COMMIT_MESSAGE" value=".gitignore added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="722" y="242" width="465" height="562" key="#com.intellij.ide.util.MemberChooser" timestamp="1577359411476">
       <screen x="0" y="27" width="1920" height="994" />
     </state>
     <state x="722" y="242" width="465" height="562" key="#com.intellij.ide.util.MemberChooser/0.27.1920.994@0.27.1920.994" timestamp="1577359411476" />
+    <state x="525" y="119" width="860" height="807" key="CommitChangelistDialog2" timestamp="1577817608843">
+      <screen x="0" y="27" width="1920" height="994" />
+    </state>
+    <state x="525" y="119" width="860" height="807" key="CommitChangelistDialog2/0.27.1920.994@0.27.1920.994" timestamp="1577817608843" />
+    <state x="743" y="281" width="424" height="484" key="FileChooserDialogImpl" timestamp="1577817697012">
+      <screen x="0" y="27" width="1920" height="994" />
+    </state>
+    <state x="743" y="281" width="424" height="484" key="FileChooserDialogImpl/0.27.1920.994@0.27.1920.994" timestamp="1577817697012" />
     <state width="1874" height="320" key="GridCell.Tab.0.bottom" timestamp="1577731748943">
       <screen x="0" y="27" width="1920" height="994" />
     </state>
