@@ -7,7 +7,9 @@
 
 
 class OpenServerCommand {
-
+    void openServer();
+public:
+    void openDataServer();
 };
 
 

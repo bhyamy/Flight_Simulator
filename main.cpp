@@ -1,6 +1,4 @@
 #include <iostream>
-#include <string>
-#include <algorithm>
 #include "Lexer.h"
 
 using namespace std;
