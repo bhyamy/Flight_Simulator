@@ -6,12 +6,15 @@
 #define PROJECT_PRINTCOMMAND_H
 
 #include "Command.h"
+#include "Data.h"
 #include <iostream>
 #include <vector>
 using namespace std;
 
-class PrintCommand : Command {
-    virtual int execute(vector<string>::iterator iter);
+class PrintCommand : public Command {
+public:
+    int execute(vector<string>::iterator iter) override;
+    PrintCommand();
 };
 
 

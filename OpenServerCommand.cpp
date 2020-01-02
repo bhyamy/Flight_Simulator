@@ -11,6 +11,9 @@
 #define PORT 5400
 using namespace std;
 
+//ctor
+OpenServerCommand::OpenServerCommand() {}
+
 void OpenServerCommand::openDataServer() {
     std::thread(openServer);
 }
@@ -49,3 +52,5 @@ int OpenServerCommand::openServer() {
 int OpenServerCommand::execute(vector<string>::iterator iter) {
 
 }
+
+

@@ -10,6 +10,15 @@
 #include "ex1.h"
 #include "Command.h"
 #include "Interpreter.h"
+#include "PrintCommand.h"
+#include "OpenServerCommand.h"
+#include "SleepCommand.h"
+#include "ConnectServerCommand.h"
+#include "DefineVarCommand.h"
+#include "WhileCommand.h"
+#include "IfCommand.h"
+#include "SetVarCommand.h"
+
 using namespace std;
 
 class Data {
@@ -26,6 +35,7 @@ public:
     unordered_map<string, Variable*> _sim_table;
     unordered_map<string, Variable*> _symbol_table;
     Interpreter _interpreter;
+    queue<Variable> _output;
 
     static Data& get_data() {
         static Data data;
@@ -36,8 +46,6 @@ public:
 
     Data(Data const&) = delete;
     void operator=(Data const&) = delete;
-
-
 };
 
 

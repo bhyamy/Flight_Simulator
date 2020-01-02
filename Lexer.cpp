@@ -7,6 +7,7 @@
 #include <string>
 #include <algorithm>
 
+//ctor
 Lexer::Lexer() {
     _vec = new vector<string>;
 }

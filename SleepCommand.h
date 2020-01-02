@@ -7,9 +7,10 @@
 #include "Command.h"
 #include "Data.h"
 
-class SleepCommand : Command {
+class SleepCommand : public Command {
 public:
-    virtual int execute(vector<string>::iterator iter);
+    SleepCommand();
+    int execute(vector<string>::iterator iter) override;
 };
 
 

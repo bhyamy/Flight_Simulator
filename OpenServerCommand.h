@@ -9,14 +9,12 @@
 #include "Command.h"
 
 
-class OpenServerCommand : Command {
-
+class OpenServerCommand : public Command {
     int openServer();
 public:
-    void openDataServer();
-
-private:
     int execute(vector<string>::iterator iter) override;
+    void openDataServer();
+    OpenServerCommand();
 };
 
 

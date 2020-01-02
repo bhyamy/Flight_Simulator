@@ -4,13 +4,13 @@
 
 #include "Interpreter.h"
 
-
+//ctor's
 Interpreter::Interpreter() {
     this->values = new unordered_map<string, Variable*>;
 }
 Interpreter::Interpreter(unordered_map<string, Variable *>* values) : values(values) {}
 
-
+//dtor
 Interpreter::~Interpreter() {
     delete values;
 }

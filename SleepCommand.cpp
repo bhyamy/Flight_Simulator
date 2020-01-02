@@ -7,9 +7,14 @@
 
 using namespace std;
 
+//ctor
+SleepCommand::SleepCommand() {}
+
 //sends the thread to sleep
 int SleepCommand::execute(vector<string>::iterator iter) {
     double sleeper = Data::get_data()._interpreter.interpret(*iter)->calculate();
     this_thread::sleep_for(chrono::milliseconds((int)sleeper));
     return 1;
 }
+
+

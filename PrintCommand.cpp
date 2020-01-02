@@ -4,15 +4,18 @@
 
 #include "PrintCommand.h"
 
-int PrintCommand::execute(string *str) {
-    string first = str[0];
-    if (first.front() == '\"') {
-        first.pop_back();
-        first = first.substr(1);
-        cout << first << endl;
+//ctor
+PrintCommand::PrintCommand() {}
+
+int PrintCommand::execute(vector<string>::iterator iter) {
+    string str = *iter;
+    if (str.front() == '\"') {
+        str.pop_back();
+        cout << str.substr(1) << endl;
     } else {
-
+        cout << Data::get_data()._interpreter.interpret(*iter)->calculate() << endl;
     }
-
     return 1;
 }
+
+
