@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/99/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/98/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/99/bin/cmake/linux/bin/cmake -E remove -f
+RM = /snap/clion/98/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/iris/CLionProjects/project
+CMAKE_SOURCE_DIR = /home/bhyamy/CLionProjects/project1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/iris/CLionProjects/project/cmake-build-debug
+CMAKE_BINARY_DIR = /home/bhyamy/CLionProjects/project1/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/project.dir/depend.make
@@ -59,62 +59,104 @@ include CMakeFiles/project.dir/flags.make
 
 CMakeFiles/project.dir/main.cpp.o: CMakeFiles/project.dir/flags.make
 CMakeFiles/project.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/iris/CLionProjects/project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/project.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project.dir/main.cpp.o -c /home/iris/CLionProjects/project/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bhyamy/CLionProjects/project1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/project.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project.dir/main.cpp.o -c /home/bhyamy/CLionProjects/project1/main.cpp
 
 CMakeFiles/project.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/iris/CLionProjects/project/main.cpp > CMakeFiles/project.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bhyamy/CLionProjects/project1/main.cpp > CMakeFiles/project.dir/main.cpp.i
 
 CMakeFiles/project.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/iris/CLionProjects/project/main.cpp -o CMakeFiles/project.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bhyamy/CLionProjects/project1/main.cpp -o CMakeFiles/project.dir/main.cpp.s
 
 CMakeFiles/project.dir/Lexer.cpp.o: CMakeFiles/project.dir/flags.make
 CMakeFiles/project.dir/Lexer.cpp.o: ../Lexer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/iris/CLionProjects/project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/project.dir/Lexer.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project.dir/Lexer.cpp.o -c /home/iris/CLionProjects/project/Lexer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bhyamy/CLionProjects/project1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/project.dir/Lexer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project.dir/Lexer.cpp.o -c /home/bhyamy/CLionProjects/project1/Lexer.cpp
 
 CMakeFiles/project.dir/Lexer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project.dir/Lexer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/iris/CLionProjects/project/Lexer.cpp > CMakeFiles/project.dir/Lexer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bhyamy/CLionProjects/project1/Lexer.cpp > CMakeFiles/project.dir/Lexer.cpp.i
 
 CMakeFiles/project.dir/Lexer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project.dir/Lexer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/iris/CLionProjects/project/Lexer.cpp -o CMakeFiles/project.dir/Lexer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bhyamy/CLionProjects/project1/Lexer.cpp -o CMakeFiles/project.dir/Lexer.cpp.s
 
 CMakeFiles/project.dir/Command.cpp.o: CMakeFiles/project.dir/flags.make
 CMakeFiles/project.dir/Command.cpp.o: ../Command.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/iris/CLionProjects/project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/project.dir/Command.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project.dir/Command.cpp.o -c /home/iris/CLionProjects/project/Command.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bhyamy/CLionProjects/project1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/project.dir/Command.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project.dir/Command.cpp.o -c /home/bhyamy/CLionProjects/project1/Command.cpp
 
 CMakeFiles/project.dir/Command.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project.dir/Command.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/iris/CLionProjects/project/Command.cpp > CMakeFiles/project.dir/Command.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bhyamy/CLionProjects/project1/Command.cpp > CMakeFiles/project.dir/Command.cpp.i
 
 CMakeFiles/project.dir/Command.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project.dir/Command.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/iris/CLionProjects/project/Command.cpp -o CMakeFiles/project.dir/Command.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bhyamy/CLionProjects/project1/Command.cpp -o CMakeFiles/project.dir/Command.cpp.s
 
 CMakeFiles/project.dir/OpenServerCommand.cpp.o: CMakeFiles/project.dir/flags.make
 CMakeFiles/project.dir/OpenServerCommand.cpp.o: ../OpenServerCommand.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/iris/CLionProjects/project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/project.dir/OpenServerCommand.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project.dir/OpenServerCommand.cpp.o -c /home/iris/CLionProjects/project/OpenServerCommand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bhyamy/CLionProjects/project1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/project.dir/OpenServerCommand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project.dir/OpenServerCommand.cpp.o -c /home/bhyamy/CLionProjects/project1/OpenServerCommand.cpp
 
 CMakeFiles/project.dir/OpenServerCommand.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project.dir/OpenServerCommand.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/iris/CLionProjects/project/OpenServerCommand.cpp > CMakeFiles/project.dir/OpenServerCommand.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bhyamy/CLionProjects/project1/OpenServerCommand.cpp > CMakeFiles/project.dir/OpenServerCommand.cpp.i
 
 CMakeFiles/project.dir/OpenServerCommand.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project.dir/OpenServerCommand.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/iris/CLionProjects/project/OpenServerCommand.cpp -o CMakeFiles/project.dir/OpenServerCommand.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bhyamy/CLionProjects/project1/OpenServerCommand.cpp -o CMakeFiles/project.dir/OpenServerCommand.cpp.s
+
+CMakeFiles/project.dir/PrintCommand.cpp.o: CMakeFiles/project.dir/flags.make
+CMakeFiles/project.dir/PrintCommand.cpp.o: ../PrintCommand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bhyamy/CLionProjects/project1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/project.dir/PrintCommand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project.dir/PrintCommand.cpp.o -c /home/bhyamy/CLionProjects/project1/PrintCommand.cpp
+
+CMakeFiles/project.dir/PrintCommand.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project.dir/PrintCommand.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bhyamy/CLionProjects/project1/PrintCommand.cpp > CMakeFiles/project.dir/PrintCommand.cpp.i
+
+CMakeFiles/project.dir/PrintCommand.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project.dir/PrintCommand.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bhyamy/CLionProjects/project1/PrintCommand.cpp -o CMakeFiles/project.dir/PrintCommand.cpp.s
+
+CMakeFiles/project.dir/ex1.cpp.o: CMakeFiles/project.dir/flags.make
+CMakeFiles/project.dir/ex1.cpp.o: ../ex1.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bhyamy/CLionProjects/project1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/project.dir/ex1.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project.dir/ex1.cpp.o -c /home/bhyamy/CLionProjects/project1/ex1.cpp
+
+CMakeFiles/project.dir/ex1.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project.dir/ex1.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bhyamy/CLionProjects/project1/ex1.cpp > CMakeFiles/project.dir/ex1.cpp.i
+
+CMakeFiles/project.dir/ex1.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project.dir/ex1.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bhyamy/CLionProjects/project1/ex1.cpp -o CMakeFiles/project.dir/ex1.cpp.s
+
+CMakeFiles/project.dir/Interpreter.cpp.o: CMakeFiles/project.dir/flags.make
+CMakeFiles/project.dir/Interpreter.cpp.o: ../Interpreter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bhyamy/CLionProjects/project1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/project.dir/Interpreter.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project.dir/Interpreter.cpp.o -c /home/bhyamy/CLionProjects/project1/Interpreter.cpp
+
+CMakeFiles/project.dir/Interpreter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project.dir/Interpreter.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bhyamy/CLionProjects/project1/Interpreter.cpp > CMakeFiles/project.dir/Interpreter.cpp.i
+
+CMakeFiles/project.dir/Interpreter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project.dir/Interpreter.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bhyamy/CLionProjects/project1/Interpreter.cpp -o CMakeFiles/project.dir/Interpreter.cpp.s
 
 # Object files for target project
 project_OBJECTS = \
 "CMakeFiles/project.dir/main.cpp.o" \
 "CMakeFiles/project.dir/Lexer.cpp.o" \
 "CMakeFiles/project.dir/Command.cpp.o" \
-"CMakeFiles/project.dir/OpenServerCommand.cpp.o"
+"CMakeFiles/project.dir/OpenServerCommand.cpp.o" \
+"CMakeFiles/project.dir/PrintCommand.cpp.o" \
+"CMakeFiles/project.dir/ex1.cpp.o" \
+"CMakeFiles/project.dir/Interpreter.cpp.o"
 
 # External object files for target project
 project_EXTERNAL_OBJECTS =
@@ -123,9 +165,12 @@ project: CMakeFiles/project.dir/main.cpp.o
 project: CMakeFiles/project.dir/Lexer.cpp.o
 project: CMakeFiles/project.dir/Command.cpp.o
 project: CMakeFiles/project.dir/OpenServerCommand.cpp.o
+project: CMakeFiles/project.dir/PrintCommand.cpp.o
+project: CMakeFiles/project.dir/ex1.cpp.o
+project: CMakeFiles/project.dir/Interpreter.cpp.o
 project: CMakeFiles/project.dir/build.make
 project: CMakeFiles/project.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/iris/CLionProjects/project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable project"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/bhyamy/CLionProjects/project1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable project"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/project.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -138,6 +183,6 @@ CMakeFiles/project.dir/clean:
 .PHONY : CMakeFiles/project.dir/clean
 
 CMakeFiles/project.dir/depend:
-	cd /home/iris/CLionProjects/project/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/iris/CLionProjects/project /home/iris/CLionProjects/project /home/iris/CLionProjects/project/cmake-build-debug /home/iris/CLionProjects/project/cmake-build-debug /home/iris/CLionProjects/project/cmake-build-debug/CMakeFiles/project.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/bhyamy/CLionProjects/project1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bhyamy/CLionProjects/project1 /home/bhyamy/CLionProjects/project1 /home/bhyamy/CLionProjects/project1/cmake-build-debug /home/bhyamy/CLionProjects/project1/cmake-build-debug /home/bhyamy/CLionProjects/project1/cmake-build-debug/CMakeFiles/project.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/project.dir/depend
 

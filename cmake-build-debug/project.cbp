@@ -8,28 +8,28 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/iris/CLionProjects/project/cmake-build-debug"/>
+				<Option working_dir="/home/bhyamy/CLionProjects/project1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/iris/CLionProjects/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/iris/CLionProjects/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/iris/CLionProjects/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/iris/CLionProjects/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bhyamy/CLionProjects/project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bhyamy/CLionProjects/project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bhyamy/CLionProjects/project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bhyamy/CLionProjects/project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/iris/CLionProjects/project/cmake-build-debug"/>
+				<Option working_dir="/home/bhyamy/CLionProjects/project1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/iris/CLionProjects/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/iris/CLionProjects/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/iris/CLionProjects/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/iris/CLionProjects/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bhyamy/CLionProjects/project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bhyamy/CLionProjects/project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bhyamy/CLionProjects/project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bhyamy/CLionProjects/project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="project">
-				<Option output="/home/iris/CLionProjects/project/cmake-build-debug/project" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/iris/CLionProjects/project/cmake-build-debug"/>
+				<Option output="/home/bhyamy/CLionProjects/project1/cmake-build-debug/project" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bhyamy/CLionProjects/project1/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -44,15 +44,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/iris/CLionProjects/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 project"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/iris/CLionProjects/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/iris/CLionProjects/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/iris/CLionProjects/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bhyamy/CLionProjects/project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 project"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bhyamy/CLionProjects/project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bhyamy/CLionProjects/project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bhyamy/CLionProjects/project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="project/fast">
-				<Option output="/home/iris/CLionProjects/project/cmake-build-debug/project" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/iris/CLionProjects/project/cmake-build-debug"/>
+				<Option output="/home/bhyamy/CLionProjects/project1/cmake-build-debug/project" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bhyamy/CLionProjects/project1/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -67,45 +67,66 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/iris/CLionProjects/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 project/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/iris/CLionProjects/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/iris/CLionProjects/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/iris/CLionProjects/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bhyamy/CLionProjects/project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 project/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bhyamy/CLionProjects/project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bhyamy/CLionProjects/project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bhyamy/CLionProjects/project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/iris/CLionProjects/project/cmake-build-debug"/>
+				<Option working_dir="/home/bhyamy/CLionProjects/project1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/iris/CLionProjects/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/iris/CLionProjects/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/iris/CLionProjects/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/iris/CLionProjects/project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bhyamy/CLionProjects/project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bhyamy/CLionProjects/project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bhyamy/CLionProjects/project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bhyamy/CLionProjects/project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/iris/CLionProjects/project/Command.cpp">
+		<Unit filename="/home/bhyamy/CLionProjects/project1/Command.cpp">
 			<Option target="project"/>
 		</Unit>
-		<Unit filename="/home/iris/CLionProjects/project/Command.h">
+		<Unit filename="/home/bhyamy/CLionProjects/project1/Command.h">
 			<Option target="project"/>
 		</Unit>
-		<Unit filename="/home/iris/CLionProjects/project/Lexer.cpp">
+		<Unit filename="/home/bhyamy/CLionProjects/project1/Expression.h">
 			<Option target="project"/>
 		</Unit>
-		<Unit filename="/home/iris/CLionProjects/project/Lexer.h">
+		<Unit filename="/home/bhyamy/CLionProjects/project1/Interpreter.cpp">
 			<Option target="project"/>
 		</Unit>
-		<Unit filename="/home/iris/CLionProjects/project/OpenServerCommand.cpp">
+		<Unit filename="/home/bhyamy/CLionProjects/project1/Interpreter.h">
 			<Option target="project"/>
 		</Unit>
-		<Unit filename="/home/iris/CLionProjects/project/OpenServerCommand.h">
+		<Unit filename="/home/bhyamy/CLionProjects/project1/Lexer.cpp">
 			<Option target="project"/>
 		</Unit>
-		<Unit filename="/home/iris/CLionProjects/project/main.cpp">
+		<Unit filename="/home/bhyamy/CLionProjects/project1/Lexer.h">
 			<Option target="project"/>
 		</Unit>
-		<Unit filename="/home/iris/CLionProjects/project/CMakeLists.txt">
+		<Unit filename="/home/bhyamy/CLionProjects/project1/OpenServerCommand.cpp">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/home/bhyamy/CLionProjects/project1/OpenServerCommand.h">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/home/bhyamy/CLionProjects/project1/PrintCommand.cpp">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/home/bhyamy/CLionProjects/project1/PrintCommand.h">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/home/bhyamy/CLionProjects/project1/ex1.cpp">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/home/bhyamy/CLionProjects/project1/ex1.h">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/home/bhyamy/CLionProjects/project1/main.cpp">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="/home/bhyamy/CLionProjects/project1/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/99/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/98/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/99/bin/cmake/linux/bin/cmake -E remove -f
+RM = /snap/clion/98/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/iris/CLionProjects/project
+CMAKE_SOURCE_DIR = /home/bhyamy/CLionProjects/project1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/iris/CLionProjects/project/cmake-build-debug
+CMAKE_BINARY_DIR = /home/bhyamy/CLionProjects/project1/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/iris/CLionProjects/project/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/snap/clion/99/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/98/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/snap/clion/99/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/98/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/iris/CLionProjects/project/cmake-build-debug/CMakeFiles /home/iris/CLionProjects/project/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bhyamy/CLionProjects/project1/cmake-build-debug/CMakeFiles /home/bhyamy/CLionProjects/project1/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/iris/CLionProjects/project/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bhyamy/CLionProjects/project1/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -150,6 +150,33 @@ Command.cpp.s:
 	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/Command.cpp.s
 .PHONY : Command.cpp.s
 
+Interpreter.o: Interpreter.cpp.o
+
+.PHONY : Interpreter.o
+
+# target to build an object file
+Interpreter.cpp.o:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/Interpreter.cpp.o
+.PHONY : Interpreter.cpp.o
+
+Interpreter.i: Interpreter.cpp.i
+
+.PHONY : Interpreter.i
+
+# target to preprocess a source file
+Interpreter.cpp.i:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/Interpreter.cpp.i
+.PHONY : Interpreter.cpp.i
+
+Interpreter.s: Interpreter.cpp.s
+
+.PHONY : Interpreter.s
+
+# target to generate assembly for a file
+Interpreter.cpp.s:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/Interpreter.cpp.s
+.PHONY : Interpreter.cpp.s
+
 Lexer.o: Lexer.cpp.o
 
 .PHONY : Lexer.o
@@ -204,6 +231,60 @@ OpenServerCommand.cpp.s:
 	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/OpenServerCommand.cpp.s
 .PHONY : OpenServerCommand.cpp.s
 
+PrintCommand.o: PrintCommand.cpp.o
+
+.PHONY : PrintCommand.o
+
+# target to build an object file
+PrintCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/PrintCommand.cpp.o
+.PHONY : PrintCommand.cpp.o
+
+PrintCommand.i: PrintCommand.cpp.i
+
+.PHONY : PrintCommand.i
+
+# target to preprocess a source file
+PrintCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/PrintCommand.cpp.i
+.PHONY : PrintCommand.cpp.i
+
+PrintCommand.s: PrintCommand.cpp.s
+
+.PHONY : PrintCommand.s
+
+# target to generate assembly for a file
+PrintCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/PrintCommand.cpp.s
+.PHONY : PrintCommand.cpp.s
+
+ex1.o: ex1.cpp.o
+
+.PHONY : ex1.o
+
+# target to build an object file
+ex1.cpp.o:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/ex1.cpp.o
+.PHONY : ex1.cpp.o
+
+ex1.i: ex1.cpp.i
+
+.PHONY : ex1.i
+
+# target to preprocess a source file
+ex1.cpp.i:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/ex1.cpp.i
+.PHONY : ex1.cpp.i
+
+ex1.s: ex1.cpp.s
+
+.PHONY : ex1.s
+
+# target to generate assembly for a file
+ex1.cpp.s:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/ex1.cpp.s
+.PHONY : ex1.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -243,12 +324,21 @@ help:
 	@echo "... Command.o"
 	@echo "... Command.i"
 	@echo "... Command.s"
+	@echo "... Interpreter.o"
+	@echo "... Interpreter.i"
+	@echo "... Interpreter.s"
 	@echo "... Lexer.o"
 	@echo "... Lexer.i"
 	@echo "... Lexer.s"
 	@echo "... OpenServerCommand.o"
 	@echo "... OpenServerCommand.i"
 	@echo "... OpenServerCommand.s"
+	@echo "... PrintCommand.o"
+	@echo "... PrintCommand.i"
+	@echo "... PrintCommand.s"
+	@echo "... ex1.o"
+	@echo "... ex1.i"
+	@echo "... ex1.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

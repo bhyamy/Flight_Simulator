@@ -9,7 +9,7 @@ using namespace std;
 
 class Command {
 public:
-    int virtual execute(string str[]) = 0;
+    virtual int execute(string str[]) = 0;
 };
 
 
