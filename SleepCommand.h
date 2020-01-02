@@ -5,9 +5,11 @@
 #ifndef PROJECT_SLEEPCOMMAND_H
 #define PROJECT_SLEEPCOMMAND_H
 #include "Command.h"
+#include "Data.h"
 
 class SleepCommand : Command {
-    int execute(string *str) override;
+public:
+    virtual int execute(vector<string>::iterator iter);
 };
 
 

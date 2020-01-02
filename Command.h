@@ -9,7 +9,7 @@ using namespace std;
 
 class Command {
 public:
-    virtual int execute(string str[]) = 0;
+    virtual int execute(vector<string>::iterator iter) = 0;
 };
 
 

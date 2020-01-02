@@ -45,3 +45,7 @@ int OpenServerCommand::openServer() {
     }
     close(socketfd);
 }
+
+int OpenServerCommand::execute(vector<string>::iterator iter) {
+
+}
