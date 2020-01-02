@@ -8,6 +8,7 @@
 
 #include <vector>
 #include "Command.h"
+#include "Data.h"
 
 class DefineVarCommand : public Command{
 public:
