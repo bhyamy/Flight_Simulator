@@ -3,11 +3,13 @@
 //
 
 #include "Interpreter.h"
-#include "ex1.h"
+
 
 Interpreter::Interpreter() {
-    this->values = new map<string, double>;
+    this->values = new unordered_map<string, Variable*>;
 }
+Interpreter::Interpreter(unordered_map<string, Variable *>* values) : values(values) {}
+
 
 Interpreter::~Interpreter() {
     delete values;
@@ -132,7 +134,7 @@ Expression* Interpreter::interpret(string e) {
         } else if (regex_match(first, variable_regex)) {
             auto iter = values->find(first);
             if (iter != values->end()) {
-                expression_stack->push(new Variable(iter->first, iter->second));
+                expression_stack->push(iter->second);
             } else {
                 throw ("bad input10");
             }
@@ -194,6 +196,8 @@ Expression* Interpreter::interpret(string e) {
     return result;
 }
 
+
+
 void Interpreter::setVariables(const string& variables) {
     regex var_regex("\\W");
     regex num_regex1("^\\-?\\d*\\.?\\d*");
@@ -223,6 +227,6 @@ void Interpreter::setVariables(const string& variables) {
         } catch (invalid_argument) {
             throw ("bad input17");
         }
-        (*this->values)[name] = check_num;
+        ((*this->values)[name])->setValue(check_num);
     }
 }

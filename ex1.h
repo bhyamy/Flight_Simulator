@@ -1,7 +1,7 @@
 
 #include <iostream>
 #include "Expression.h"
-#include "Interpreter.h"
+
 
 
 #ifndef EX1IRIS_EX1_H
@@ -16,7 +16,7 @@ public:
     virtual ~Value();
 };
 
-class Variable : public Expression{
+class Variable : public Expression {
     string name;
     string sim_Address;
     string sim_Direction;
@@ -32,6 +32,19 @@ public:
     double calculate() override;
     Variable(string name_string, double val);
     virtual ~Variable();
+
+    const string &getName() const;
+    const string &getSimAddress() const;
+    const string &getSimDirection() const;
+    double getValue() const;
+
+    void setName(const string &name);
+
+    void setSimAddress(const string &simAddress);
+
+    void setSimDirection(const string &simDirection);
+
+    void setValue(double value);
 };
 
 class UnaryOperator : public Expression {

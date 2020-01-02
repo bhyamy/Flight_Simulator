@@ -103,6 +103,38 @@ BinaryOperator::~BinaryOperator() {
 
 Variable::~Variable() {}
 
+const string &Variable::getName() const {
+    return name;
+}
+
+const string &Variable::getSimAddress() const {
+    return sim_Address;
+}
+
+const string &Variable::getSimDirection() const {
+    return sim_Direction;
+}
+
+double Variable::getValue() const {
+    return value;
+}
+
+void Variable::setName(const string &name) {
+    Variable::name = name;
+}
+
+void Variable::setSimAddress(const string &simAddress) {
+    sim_Address = simAddress;
+}
+
+void Variable::setSimDirection(const string &simDirection) {
+    sim_Direction = simDirection;
+}
+
+void Variable::setValue(double value) {
+    Variable::value = value;
+}
+
 UMinus::~UMinus() {}
 
 UPlus::~UPlus() {}
