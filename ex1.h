@@ -30,7 +30,12 @@ public:
     Variable&operator++(int x);
     Variable&operator--(int x);
     double calculate() override;
+    //ctor's
     Variable(string name_string, double val);
+
+    Variable(const string &name, const string &simAddress, const string &simDirection, double value);
+
+    //dtor
     virtual ~Variable();
 
     const string &getName() const;

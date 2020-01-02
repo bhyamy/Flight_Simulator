@@ -23,6 +23,8 @@ Variable::Variable(string name_string, double val) {
     this->name = name_string;
     this->value = val;
 }
+Variable::Variable(const string &name, const string &simAddress, const string &simDirection, double value)
+    : name(name), sim_Address(simAddress), sim_Direction(simDirection), value(value) {}
 
 //functions
 double Value::calculate() {
@@ -134,6 +136,8 @@ void Variable::setSimDirection(const string &simDirection) {
 void Variable::setValue(double value) {
     Variable::value = value;
 }
+
+
 
 UMinus::~UMinus() {}
 
