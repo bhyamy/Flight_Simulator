@@ -5,12 +5,12 @@
 #include "IfCommand.h"
 
 //ctor
-IfCommand::IfCommand() = default;
+IfCommand::IfCommand() {}
 
 int IfCommand::execute(vector<string>::iterator iter) {
     string condition = *iter;
     iter++;
-    if (Data::get_data()._interpreter.interpret(condition)->calculate()) {
+    if (Data::get_data()->getInterpreter()->interpret(condition)->calculate()) {
         iter += execute_block(iter);
     } else {
         while (*iter != "}")

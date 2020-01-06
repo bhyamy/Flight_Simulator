@@ -3,9 +3,6 @@
 //
 
 #include "Lexer.h"
-#include <fstream>
-#include <string>
-#include <algorithm>
 
 //ctor
 Lexer::Lexer() {
@@ -13,15 +10,15 @@ Lexer::Lexer() {
 }
 
 //this method reads the given file, checks specific tokens and handles them accordingly
-void Lexer::read_File() {
+void Lexer::read_File(string file_name) {
     ifstream file;
     string line;
     int curr, temp;
     string last_Token = " ";
-    file.open("fly.txt");
+    file.open("fly.txt");// todo change to file_name
     //checking that the file opening succeed
     if (!file.is_open()) {
-        throw "Could not open file"; //TODO maybe add try-catch?
+        throw "Could not open file";
     }
     //read each line from the file
     while (getline(file, line)) {

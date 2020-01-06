@@ -5,6 +5,8 @@
 #ifndef PROJECT_COMMAND_H
 #define PROJECT_COMMAND_H
 #include <string>
+#include <vector>
+
 using namespace std;
 
 /*this is an abstract interface, all the commands are inheriting from this class,

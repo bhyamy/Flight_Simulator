@@ -13,7 +13,7 @@ int PrintCommand::execute(vector<string>::iterator iter) {
         str.pop_back();
         cout << str.substr(1) << endl;
     } else {
-        cout << Data::get_data()._interpreter.interpret(*iter)->calculate() << endl;
+        cout << Data::get_data()->getInterpreter()->interpret(*iter)->calculate() << endl;
     }
     return 1;
 }

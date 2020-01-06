@@ -88,7 +88,7 @@ receives the information line by line*/
 */
 //this function opens the thread that runs the communication with the client
 int OpenServerCommand::execute(vector<string>::iterator iter) {
-    Server* server = new Server((int) Data::get_data()._interpreter.interpret(*iter)->calculate());
+    Server* server = new Server((int) Data::get_data()->getInterpreter()->interpret(*iter)->calculate());
     server->run();
     //thread server(&OpenServerCommand::openSocket, this,
       //            (int) Data::get_data()._interpreter.interpret(*iter)->calculate());

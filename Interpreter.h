@@ -13,10 +13,12 @@ using namespace std;
 #include "ex1.h"
 
 class Interpreter {
-    unordered_map<string, Variable*>* values;
+    Interpreter(const unordered_map<string, Variable *> &values);
+
+    unordered_map<string, Variable*> values;
 public:
     Interpreter();
-    Interpreter(unordered_map<string, Variable *>* values);
+    Interpreter(unordered_map<string, Variable *> &values);
 
     void setVariables(const string& variables);
     Expression* interpret(string e);

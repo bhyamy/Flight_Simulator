@@ -11,8 +11,8 @@ void Parser::run_commands(Lexer lexer) {
     bool checking_for_set = true;
     auto iter = lexer._vec->begin();
     while (iter != lexer._vec->end()) {
-        auto cmd_iter = Data::get_data()._command_table.find(*iter);
-        if (cmd_iter == Data::get_data()._command_table.end()) {
+        auto cmd_iter = Data::get_data()->getCommandTable().find(*iter);
+        if (cmd_iter == Data::get_data()->getCommandTable().end()) {
             if (checking_for_set) {
                 iter++;
                 checking_for_set = false;
@@ -20,6 +20,7 @@ void Parser::run_commands(Lexer lexer) {
             }
             throw ("Parser could not find command");
         }
+        iter++;
         iter += cmd_iter->second->execute(iter);
         checking_for_set = true;
     }

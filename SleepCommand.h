@@ -5,6 +5,7 @@
 #ifndef PROJECT_SLEEPCOMMAND_H
 #define PROJECT_SLEEPCOMMAND_H
 #include "Command.h"
+#include <thread>
 #include "Data.h"
 
 class SleepCommand : public Command {

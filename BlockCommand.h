@@ -1,4 +1,4 @@
-//
+//#include "Data.h"
 // Created by bhyamy on 1/5/20.
 //
 
@@ -13,7 +13,7 @@ class BlockCommand : public Command {
 protected:
     int execute_block(vector<string>::iterator iter);
 public:
-    int execute(vector<string>::iterator iter) override = 0;
+    virtual int execute(vector<string>::iterator iter) = 0;
 
 public:
     BlockCommand();

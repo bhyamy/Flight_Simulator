@@ -5,15 +5,11 @@
 #include "Interpreter.h"
 
 //ctor's
-Interpreter::Interpreter() {
-    this->values = new unordered_map<string, Variable*>;
-}
-Interpreter::Interpreter(unordered_map<string, Variable *>* values) : values(values) {}
+Interpreter::Interpreter() {}
+Interpreter::Interpreter(unordered_map<string, Variable*> &values) : values(values) {}
 
 //dtor
-Interpreter::~Interpreter() {
-    delete values;
-}
+Interpreter::~Interpreter() {}
 
 Expression* Interpreter::interpret(string e) {
     auto* operand_stack = new stack<string>;
@@ -26,7 +22,7 @@ Expression* Interpreter::interpret(string e) {
     regex not_numbers_regex("[^\\d\\.]");
     regex parenthesis ("[\\(\\)]");
     regex parenthesis_close ("\\)");
-    regex boolean_signs("[<>=!]");//**************************************************************continue from here
+    regex boolean_signs("[<>=!]");
     int counter = 0;
     for (string::size_type i = 0; i < e.size(); i++) {
         if (e[i] == '(' ) {
@@ -183,8 +179,8 @@ Expression* Interpreter::interpret(string e) {
         } else if (regex_match(first, numbers_regex)) {
             expression_stack->push(new Value(stod(first)));
         } else if (regex_match(first, variable_regex)) {
-            auto iter = values->find(first);
-            if (iter != values->end()) {
+            auto iter = values.find(first);
+            if (iter != values.end()) {
                 expression_stack->push(iter->second);
             } else {
                 throw ("bad input12");
@@ -278,6 +274,6 @@ void Interpreter::setVariables(const string& variables) {
         } catch (invalid_argument) {
             throw ("bad input19");
         }
-        ((*this->values)[name])->setValue(check_num);
+        (values[name])->setValue(check_num);
     }
 }

@@ -31,11 +31,11 @@ ConnectServerCommand::ConnectServerCommand() {}
         cout << "Connected to server" << endl;
     }
 
-    close(client_socket);*/
-}
+    close(client_socket);
+}*/
 
 int ConnectServerCommand::execute(vector<string>::iterator iter) {
-    Client* client = new Client(*iter, (int) Data::get_data()._interpreter.interpret(*(++iter))->calculate());
+    Client* client = new Client(*iter, (int) Data::get_data()->getInterpreter()->interpret(*(++iter))->calculate());
     client->run();
     //thread server(&OpenServerCommand::openSocket, this,
     //            (int) Data::get_data()._interpreter.interpret(*iter)->calculate());

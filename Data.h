@@ -8,46 +8,56 @@
 #include <queue>
 #include <string>
 #include "ex1.h"
-#include "Command.h"
 #include "Interpreter.h"
-#include "PrintCommand.h"
-#include "OpenServerCommand.h"
-#include "SleepCommand.h"
-#include "ConnectServerCommand.h"
-#include "DefineVarCommand.h"
-#include "WhileCommand.h"
-#include "IfCommand.h"
-#include "SetVarCommand.h"
+#include "Command.h"
+
 
 //this is a singleton class
 using namespace std;
 
 class Data {
     //ctor
+    static Data* _data;
     Data();
+
 
     //private methods
     void make_command_map();
     void make_sim_map();
-
-
-public:
+    // data members
     unordered_map<string, Command*> _command_table;
     unordered_map<string, Variable*> _sim_table;
     unordered_map<string, Variable*> _symbol_table;
-    ununordered_map<int, VaVariable*> _index_table;
-    Interpreter _interpreter;
-    queue<Variable*> _output;
+    unordered_map<int, Variable*> _index_table;
+    Interpreter* _interpreter;
+    queue<string> _output;
+    bool _is_parser_done;
 
-    static Data& get_data() {
-        static Data data;
-        return data;
-    }
+
+public:
+    static Data* get_data();
 
     virtual ~Data();
 
     Data(Data const&) = delete;
     void operator=(Data const&) = delete;
+
+    unordered_map<string, Command*> &getCommandTable();
+
+    unordered_map<string, Variable*> &getSimTable();
+
+    unordered_map<string, Variable*> &getSymbolTable();
+
+    unordered_map<int, Variable*> &getIndexTable();
+
+    Interpreter * getInterpreter();
+
+    queue<string> &getOutput();
+
+    void setIsParserDone(bool isParserDone);
+
+    bool isParserDone();
+
 };
 
 

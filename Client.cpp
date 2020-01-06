@@ -45,11 +45,11 @@ void Client::run() {
 if connected then ............. call func while parser != finished
 then detach */
 void Client::send_Data() {
-    while (!Data::get_data().isParserDone()) {
-        while (!Data::get_data()->get_output.empty) {
-            string content = Data::get_data().get_output.front;
-            Data::get_data()._output.pop();
-            int is_sent = send(sock, content, content.size(), 0);
+    while (!Data::get_data()->isParserDone()) {
+        while (!Data::get_data()->getOutput().empty()) {
+            string content = Data::get_data()->getOutput().front();
+            Data::get_data()->getOutput().pop();
+            int is_sent = send(sock, content.c_str(), content.size(), 0);
             if (is_sent == -1) {
                 cout << "Could not send message" << endl;
             }

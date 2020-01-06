@@ -11,7 +11,7 @@ int WhileCommand::execute(vector<string>::iterator iter) {
     int return_sum = 1;
     string condition = *iter;
     iter++;
-    while (Data::get_data()._interpreter.interpret(condition)->calculate()) {
+    while (Data::get_data()->getInterpreter()->interpret(condition)->calculate()) {
         iter -= execute_block(iter);
     }
     while (*iter != "}") {

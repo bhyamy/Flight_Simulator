@@ -5,9 +5,8 @@
 #ifndef AP_PROJECT_WHILECOMMAND_H
 #define AP_PROJECT_WHILECOMMAND_H
 
-#include <vector>
 #include "BlockCommand.h"
-#include "Data.h"
+
 
 
 class WhileCommand : public BlockCommand {

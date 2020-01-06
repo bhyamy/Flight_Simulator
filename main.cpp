@@ -5,16 +5,17 @@
 
 using namespace std;
 
-int main() {
-    Data::get_data();
+int main(int argc, char** argv) {
     Lexer lexer;
     Parser parser;
+    Data::get_data();
     try {
-        lexer.read_File();
+        lexer.read_File(argv[1]);
         parser.run_commands(lexer);
     } catch (const char* e) {
         cout << e << endl;
     }
+    Data::get_data()->setIsParserDone(true);
 
     return 0;
 }

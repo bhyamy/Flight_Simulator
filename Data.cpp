@@ -3,16 +3,42 @@
 //
 
 #include "Data.h"
+#include "PrintCommand.h"
+#include "OpenServerCommand.h"
+#include "SleepCommand.h"
+#include "ConnectServerCommand.h"
+#include "DefineVarCommand.h"
+#include "WhileCommand.h"
+#include "IfCommand.h"
+#include "SetVarCommand.h"
+
+
 
 //ctor
 Data::Data() {
+    _is_parser_done = false;
     make_command_map();
     make_sim_map();
-    _interpreter = Interpreter(&_symbol_table);
+    _interpreter = new Interpreter(_symbol_table);
+}
+
+void Data::setIsParserDone(bool isParserDone) {
+    _is_parser_done = isParserDone;
+}
+
+Data* Data::_data = 0;
+
+Data* Data::get_data() {
+    if (_data == 0) {
+        _data = new Data();
+    }
+    return _data;
 }
 
 //dtor
-Data::~Data() {}
+Data::~Data() {
+    delete _data;
+}
 
 //this function initializes the command table command
 void Data::make_command_map() {
@@ -136,4 +162,38 @@ void Data::make_sim_map() {
     string sim36 = "/engines/engine/rpm";
     _sim_table[sim36] = new Variable("engine_rpm", sim36, "", 0);
     _index_table[35] = _sim_table.at(sim36);
+}
+
+unordered_map<string, Command*> &Data::getCommandTable() {
+    //todo mutex
+    return _command_table;
+}
+
+unordered_map<string, Variable*> &Data::getSimTable() {
+    //todo mutex
+    return _sim_table;
+}
+
+unordered_map<string, Variable*> &Data::getSymbolTable() {
+    //todo mutex
+    return _symbol_table;
+}
+
+unordered_map<int, Variable*> &Data::getIndexTable() {
+    //todo mutex
+    return _index_table;
+}
+
+Interpreter * Data::getInterpreter() {
+    //todo mutex
+    return _interpreter;
+}
+
+queue<string> &Data::getOutput() {
+    //todo mutex
+    return _output;
+}
+
+bool Data::isParserDone() {
+    return _is_parser_done;
 }

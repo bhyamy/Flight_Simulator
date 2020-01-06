@@ -48,7 +48,7 @@ void Server::readData() {
     string data;
     int valRead;
     char buffer[1024];
-    while (true) {
+    while (Data::get_data()->isParserDone()) {
         valRead = read(client_socket, buffer, 1024);
         data.append(buffer, valRead);
         while (data.find('\n') == string::npos) {
@@ -71,7 +71,7 @@ void Server::update(string data) {
     while (i < 36) {
         comma = data.find_first_of(',', curr);
         info = (comma != -1 ? data.substr(curr, comma - curr) : data.substr(curr));
-        if ((var = Data::get_data()._index_table.at(i))->getSimDirection() == "<-") {
+        if ((var = Data::get_data()->getIndexTable().at(i))->getSimDirection() == "<-") {
             var->setValue(stod(info));
         }
         curr++;
