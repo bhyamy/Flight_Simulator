@@ -6,9 +6,10 @@
 #define AP_PROJECT_IFCOMMAND_H
 
 #include <vector>
-#include "Command.h"
+#include "BlockCommand.h"
+#include "Data.h"
 
-class IfCommand : public Command{
+class IfCommand : public BlockCommand{
 public:
     IfCommand();
     int execute(vector<string>::iterator iter) override;

@@ -156,5 +156,75 @@ Value::~Value() {}
 
 
 
+Smaller_op::Smaller_op(Expression *leftSide, Expression *rightSide) : BinaryOperator(leftSide, rightSide) {}
+
+double Smaller_op::calculate() {
+    if (left->calculate() < right->calculate())
+        return 1;
+    return 0;
+}
+
+Smaller_op::~Smaller_op() {
+
+}
+
+Bigger_op::Bigger_op(Expression *leftSide, Expression *rightSide) : BinaryOperator(leftSide, rightSide) {}
+
+double Bigger_op::calculate() {
+   if (left->calculate() > right->calculate())
+       return 1;
+   return 0;
+}
+
+Bigger_op::~Bigger_op() {
 
 
+}
+
+Equal_op::Equal_op(Expression *leftSide, Expression *rightSide) : BinaryOperator(leftSide, rightSide) {}
+
+double Equal_op::calculate() {
+    if (left->calculate() == right->calculate())
+        return 1;
+    return 0;
+}
+
+Equal_op::~Equal_op() {
+
+}
+
+Not_eq_op::Not_eq_op(Expression *leftSide, Expression *rightSide) : BinaryOperator(leftSide, rightSide) {}
+
+double Not_eq_op::calculate() {
+    if (left->calculate() != right->calculate())
+        return 1;
+    return 0;
+}
+
+Not_eq_op::~Not_eq_op() {
+
+}
+
+Smaller_eq_op::Smaller_eq_op(Expression *leftSide, Expression *rightSide) : BinaryOperator(leftSide, rightSide) {}
+
+double Smaller_eq_op::calculate() {
+    if (left->calculate() <= right->calculate())
+        return 1;
+    return 0;
+}
+
+Smaller_eq_op::~Smaller_eq_op() {
+
+}
+
+Bigger_eq_op::Bigger_eq_op(Expression *leftSide, Expression *rightSide) : BinaryOperator(leftSide, rightSide) {}
+
+double Bigger_eq_op::calculate() {
+    if (left->calculate() >= right->calculate())
+        return 1;
+    return 0;
+}
+
+Bigger_eq_op::~Bigger_eq_op() {
+
+}

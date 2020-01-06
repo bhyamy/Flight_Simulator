@@ -26,6 +26,7 @@ Expression* Interpreter::interpret(string e) {
     regex not_numbers_regex("[^\\d\\.]");
     regex parenthesis ("[\\(\\)]");
     regex parenthesis_close ("\\)");
+    regex boolean_signs("[<>=!]");//**************************************************************continue from here
     int counter = 0;
     for (string::size_type i = 0; i < e.size(); i++) {
         if (e[i] == '(' ) {
@@ -42,7 +43,19 @@ Expression* Interpreter::interpret(string e) {
     }
     while (current < e.size()) {
         string get;
-        if (regex_match(e.substr(current, 1), operand_regex)) {
+        if (regex_match(e.substr(current, 1), boolean_signs)) { // deals with boolean operands
+            string bool_op = e.substr(current, 1);
+            current++;
+            if (regex_match(e.substr(current, 1), boolean_signs)) {
+                bool_op += e.substr(current, 1);
+                current++;
+            }
+            while (!operand_stack->empty()) {
+                numbers_queue->push(operand_stack->top());
+                operand_stack->pop();
+            }
+            operand_stack->push(bool_op);
+        } else if (regex_match(e.substr(current, 1), operand_regex)) {
             string op = e.substr(current, 1);
             if (op == "(") {
                 if (current != 0 && !(regex_match(e.substr(current - 1, 1), operand_regex) &&
@@ -65,7 +78,7 @@ Expression* Interpreter::interpret(string e) {
                     operand_stack->pop();
                     operand_stack->push(op);
                 } else {
-                    if (current != 0 && (get = e.substr(current - 1, 1)) == "(") {
+                    if (current == 0 || (get = e.substr(current - 1, 1)) == "(") {
                         operand_stack->push("~" + op);
                     } else
                         operand_stack->push(op);
@@ -74,7 +87,8 @@ Expression* Interpreter::interpret(string e) {
                 if (current != 0 && regex_match(e.substr(current - 1, 1), operand_regex) &&
                     !regex_match(e.substr(current - 1, 1), parenthesis_close))
                     throw ("bad input5");
-                if (!operand_stack->empty() && (operand_stack->top() == "*" || operand_stack->top() == "/")) {
+                if (!operand_stack->empty() && (operand_stack->top() == "*" || operand_stack->top() == "/" ||
+                        operand_stack->top() == "~-" || operand_stack->top() == "~+")) {
                     numbers_queue->push(operand_stack->top());
                     operand_stack->pop();
                     operand_stack->push(op);
@@ -129,14 +143,51 @@ Expression* Interpreter::interpret(string e) {
     while (!numbers_queue->empty()) {
         string first = numbers_queue->front();
         numbers_queue->pop();
-        if (regex_match(first, numbers_regex)) {
+        if (regex_match(first, boolean_signs)) { // deals with boolean operands
+            Expression* new_exp;
+            Expression* old_exp1;
+            if (!expression_stack->empty()) {
+                old_exp1 = expression_stack->top();
+                expression_stack->pop();
+            } else {
+                throw ("bad input10");
+            }
+
+            Expression* old_exp2;
+            if (!expression_stack->empty()) {
+                old_exp2 = expression_stack->top();
+                expression_stack->pop();
+            }else {
+                throw ("bad input11");
+            }
+
+            if (first == "==") {
+                new_exp = new Equal_op(old_exp2, old_exp1);
+                expression_stack->push(new_exp);
+            } else if (first == "!=") {
+                new_exp = new Not_eq_op(old_exp2, old_exp1);
+                expression_stack->push(new_exp);
+            } else if (first == ">") {
+                new_exp = new Bigger_op(old_exp2, old_exp1);
+                expression_stack->push(new_exp);
+            } else if (first == "<") {
+                new_exp = new Smaller_op(old_exp2, old_exp1);
+                expression_stack->push(new_exp);
+            } else if (first == ">=") {
+                new_exp = new Bigger_eq_op(old_exp2, old_exp1);
+                expression_stack->push(new_exp);
+            } else if (first == "<=") {
+                new_exp = new Smaller_eq_op(old_exp2, old_exp1);
+                expression_stack->push(new_exp);
+            }
+        } else if (regex_match(first, numbers_regex)) {
             expression_stack->push(new Value(stod(first)));
         } else if (regex_match(first, variable_regex)) {
             auto iter = values->find(first);
             if (iter != values->end()) {
                 expression_stack->push(iter->second);
             } else {
-                throw ("bad input10");
+                throw ("bad input12");
             }
         } else {
             Expression* new_exp;
@@ -145,7 +196,7 @@ Expression* Interpreter::interpret(string e) {
                  old_exp1 = expression_stack->top();
                  expression_stack->pop();
             } else {
-                throw ("bad input11");
+                throw ("bad input13");
             }
 
             Expression* old_exp2 = nullptr;
@@ -153,11 +204,11 @@ Expression* Interpreter::interpret(string e) {
                 old_exp2 = expression_stack->top();
                 expression_stack->pop();
             }else {
-                if ((first == "+" || first == "-") && expression_stack->size() == 0) {
+                if ((first == "+" || first == "-") && expression_stack->empty()) {
                     first = "~" + first;
                 }
                 if (first[0] != '~')
-                    throw ("bad input12");
+                    throw ("bad input14");
             }
             if (first == "+") {
                 new_exp = new Plus(old_exp2, old_exp1);
@@ -190,7 +241,7 @@ Expression* Interpreter::interpret(string e) {
     Expression* result = expression_stack->top();
     expression_stack->pop();
     if (!expression_stack->empty()) {
-        throw ("bad input13");
+        throw ("bad input15");
     }
     delete expression_stack;
     return result;
@@ -212,20 +263,20 @@ void Interpreter::setVariables(const string& variables) {
         current_semi = check_semi + 1;
         check_equals = var.find('=');
         if (check_equals == string::npos) {
-            throw ("bad input14");
+            throw ("bad input16");
         }
         string name = var.substr(0, check_equals);
         if (regex_match(name, var_regex) || isdigit(name[0])) {
-            throw ("bad input15");
+            throw ("bad input17");
         }
         string num = var.substr(check_equals + 1);
         if (!(regex_match(num, num_regex1))) {
-            throw ("bad input16");
+            throw ("bad input18");
         }
         try {
             check_num = stod(num);
         } catch (invalid_argument) {
-            throw ("bad input17");
+            throw ("bad input19");
         }
         ((*this->values)[name])->setValue(check_num);
     }

@@ -8,5 +8,16 @@
 WhileCommand::WhileCommand() {}
 
 int WhileCommand::execute(vector<string>::iterator iter) {
-    return 0;
+    int return_sum = 1;
+    string condition = *iter;
+    iter++;
+    while (Data::get_data()._interpreter.interpret(condition)->calculate()) {
+        iter -= execute_block(iter);
+    }
+    while (*iter != "}") {
+        iter++;
+        return_sum++;
+    }
+    iter++;
+    return return_sum;
 }

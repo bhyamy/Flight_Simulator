@@ -111,4 +111,46 @@ public:
     virtual ~Div();
 };
 
+class Smaller_op : public BinaryOperator {
+public:
+    double calculate() override;
+    Smaller_op(Expression *leftSide, Expression *rightSide);
+    virtual ~Smaller_op();
+};
+
+class Bigger_op : public BinaryOperator {
+public:
+    Bigger_op(Expression *leftSide, Expression *rightSide);
+    double calculate() override;
+    virtual ~Bigger_op();
+};
+
+class Equal_op : public BinaryOperator {
+public:
+    Equal_op(Expression *leftSide, Expression *rightSide);
+    double calculate() override;
+    virtual ~Equal_op();
+};
+
+class Not_eq_op : public BinaryOperator {
+public:
+    Not_eq_op(Expression *leftSide, Expression *rightSide);
+    double calculate() override;
+    virtual ~Not_eq_op();
+};
+
+class Smaller_eq_op : public BinaryOperator {
+public:
+    Smaller_eq_op(Expression *leftSide, Expression *rightSide);
+    double calculate() override;
+    virtual ~Smaller_eq_op();
+};
+
+class Bigger_eq_op : public BinaryOperator {
+public:
+    Bigger_eq_op(Expression *leftSide, Expression *rightSide);
+    double calculate() override;
+    virtual ~Bigger_eq_op();
+};
+
 #endif //EX1IRIS_EX1_H
