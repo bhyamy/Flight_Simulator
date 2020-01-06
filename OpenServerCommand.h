@@ -7,11 +7,16 @@
 
 #include <vector>
 #include "Command.h"
+#include <thread>
+#include <sys/socket.h>
+#include <unistd.h>
+#include <netinet/in.h>
+#include "Data.h"
+#include "Server.h"
+using namespace std;
 
 
 class OpenServerCommand : public Command {
-    void openSocket(int port);
-    void update(const string &line1);
 public:
     int execute(vector<string>::iterator iter) override;
     OpenServerCommand();

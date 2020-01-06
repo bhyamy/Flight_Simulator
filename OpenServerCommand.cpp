@@ -3,20 +3,14 @@
 //
 
 #include "OpenServerCommand.h"
-#include <thread>
-#include <sys/socket.h>
-#include <iostream>
-#include <unistd.h>
-#include <netinet/in.h>
-#include "Data.h"
-using namespace std;
+
 
 //ctor
 OpenServerCommand::OpenServerCommand() {}
 
 /*this function opens a server that listens to port 5400,
 receives the information line by line*/
-void OpenServerCommand::openSocket(int port) {
+/*void OpenServerCommand::openSocket(int port) {
     //socket opening - a TCP protocol
     int socketfd = socket(AF_INET, SOCK_STREAM, 0);
     //in case of socket opening error
@@ -29,25 +23,41 @@ void OpenServerCommand::openSocket(int port) {
     server_address.sin_addr.s_addr = INADDR_ANY;
     server_address.sin_port = htons(port);
     //in case an error occurred during binding
-    if (bind(socketfd, (struct sockaddr*) &server_address, sizeof(server_address)) == -1) {
+    if (bind(socketfd, (struct sockaddr *) &server_address, sizeof(server_address)) == -1) {
         throw "Could not bind the socket to an IP address";
     }
     //in case of an error in the listening part
-    if (listen(socketfd, 1) == - 1) {
+    if (listen(socketfd, 1) == -1) {
         throw "Error during listen command";
     }
     //accepting the client
-    int client_socket = accept(socketfd, (struct sockaddr*) &server_address, (socklen_t*) &server_address);
+    int client_socket = accept(socketfd, (struct sockaddr *) &server_address, (socklen_t *) &server_address);
     //in case of a client accepting error
     if (client_socket == -1) {
         throw "Could not accept the client";
     }
     //reading from the client line by line (\n to \n)
-    string buffer;
+    //string buffer;
     string line;
     int n, enter;
     char buff[1024] = {0};
     bool reading = false;
+    string data;
+    int valRead;
+    char buffer[1024];
+    while (true) {
+        valRead = read(client_socket, buffer, 1024);
+        data.append(buffer, valRead);
+        while (data.find('\n') == string::npos) {
+            int currRead;
+            currRead = read(client_socket, buffer, 1024);
+            data.append(buffer);
+            valRead += currRead;
+        }
+        string exactData = data.substr(0, data.find('\n'));
+        data.erase(0, data.find('\n') + 1);
+        update(exactData);
+    }
     while (n = read(client_socket, buff, 1024)) {
         buffer.assign(buff);
         enter = buffer.find_first_of('\n');
@@ -75,28 +85,31 @@ void OpenServerCommand::openSocket(int port) {
     }
     close(socketfd);
 }
-
+*/
 //this function opens the thread that runs the communication with the client
 int OpenServerCommand::execute(vector<string>::iterator iter) {
-    thread server(&OpenServerCommand::openSocket, this, (int)Data::get_data()._interpreter.interpret(*iter)->calculate());
-
+    Server* server = new Server((int) Data::get_data()._interpreter.interpret(*iter)->calculate());
+    server->run();
+    //thread server(&OpenServerCommand::openSocket, this,
+      //            (int) Data::get_data()._interpreter.interpret(*iter)->calculate());
+    iter++;
     return 1;
 }
 
 //this function receives the line from the buffer and updates the values
-void OpenServerCommand::update(const string &line1) {
-    Variable* var;
+/*void OpenServerCommand::update(const string &line1) {
+    Variable *var;
     int i = 0, curr = 0, comma;
     string info;
     while (i < 36) {
         comma = line1.find_first_of(',', curr);
         info = (comma != -1 ? line1.substr(curr, comma - curr) : line1.substr(curr));
-        if ((var = Data::get_data()._index_table.at(i))->sim_Direction == "<-") {
+        if ((var = Data::get_data()._index_table.at(i))->getSimDirection() == "<-") {
             var->setValue(stod(info));
         }
         curr++;
         i++;
     }
-}
+}*/
 
 
