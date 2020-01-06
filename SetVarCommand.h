@@ -7,6 +7,8 @@
 
 #include <vector>
 #include "Command.h"
+#include "Data.h"
+#include <unordered_map>
 
 class SetVarCommand : public Command{
 public:

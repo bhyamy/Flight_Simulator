@@ -19,6 +19,7 @@
 #include "IfCommand.h"
 #include "SetVarCommand.h"
 
+//this is a singleton class
 using namespace std;
 
 class Data {
@@ -34,8 +35,9 @@ public:
     unordered_map<string, Command*> _command_table;
     unordered_map<string, Variable*> _sim_table;
     unordered_map<string, Variable*> _symbol_table;
+    ununordered_map<int, VaVariable*> _index_table;
     Interpreter _interpreter;
-    queue<Variable> _output;
+    queue<Variable*> _output;
 
     static Data& get_data() {
         static Data data;

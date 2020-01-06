@@ -10,10 +10,10 @@
 
 
 class OpenServerCommand : public Command {
-    int openServer();
+    void openSocket(int port);
+    void update(const string &line1);
 public:
     int execute(vector<string>::iterator iter) override;
-    void openDataServer();
     OpenServerCommand();
 };
 

@@ -7,6 +7,8 @@
 #include <string>
 using namespace std;
 
+/*this is an abstract interface, all the commands are inheriting from this class,
+ each class implementing the execute command differently*/
 class Command {
 public:
     virtual int execute(vector<string>::iterator iter) = 0;
