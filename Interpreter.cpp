@@ -6,10 +6,7 @@
 
 //ctor's
 Interpreter::Interpreter() {}
-Interpreter::Interpreter(unordered_map<string, Variable*> &values) : values(values) {}
-
-//dtor
-Interpreter::~Interpreter() {}
+Interpreter::Interpreter(unordered_map<string, Variable*>* values) : values(values) {}
 
 Expression* Interpreter::interpret(string e) {
     auto* operand_stack = new stack<string>;
@@ -17,7 +14,7 @@ Expression* Interpreter::interpret(string e) {
     size_t current = 0;
     regex operand_regex("[\\(\\)/\\*\\-\\+]");
     regex not_variable_regex("\\W");
-    regex variable_regex("\\w");
+    regex variable_regex("\\w*");
     regex numbers_regex("\\d*\\.?\\d*");
     regex not_numbers_regex("[^\\d\\.]");
     regex parenthesis ("[\\(\\)]");

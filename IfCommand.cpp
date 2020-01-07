@@ -9,12 +9,14 @@ IfCommand::IfCommand() {}
 
 int IfCommand::execute(vector<string>::iterator iter) {
     string condition = *iter;
+    int sum = 1;
     iter++;
     if (Data::get_data()->getInterpreter()->interpret(condition)->calculate()) {
-        iter += execute_block(iter);
+        iter++;
+        sum += execute_block(iter);
     } else {
         while (*iter != "}")
-            iter++;
+            sum++;
     }
-    iter++;
+    return sum;
 }

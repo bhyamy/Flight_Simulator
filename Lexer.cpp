@@ -15,7 +15,7 @@ void Lexer::read_File(string file_name) {
     string line;
     int curr, temp;
     string last_Token = " ";
-    file.open("fly.txt");// todo change to file_name
+    file.open(file_name);
     //checking that the file opening succeed
     if (!file.is_open()) {
         throw "Could not open file";

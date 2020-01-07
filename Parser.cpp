@@ -24,6 +24,4 @@ void Parser::run_commands(Lexer lexer) {
         iter += cmd_iter->second->execute(iter);
         checking_for_set = true;
     }
-
-    //todo add joins to the threads and end the threads of the server and client
 }

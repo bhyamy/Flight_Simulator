@@ -92,7 +92,6 @@ int OpenServerCommand::execute(vector<string>::iterator iter) {
     server->run();
     //thread server(&OpenServerCommand::openSocket, this,
       //            (int) Data::get_data()._interpreter.interpret(*iter)->calculate());
-    iter++;
     return 1;
 }
 

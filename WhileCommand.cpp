@@ -18,6 +18,5 @@ int WhileCommand::execute(vector<string>::iterator iter) {
         iter++;
         return_sum++;
     }
-    iter++;
     return return_sum;
 }

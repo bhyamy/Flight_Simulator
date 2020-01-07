@@ -1,7 +1,6 @@
 
 
 
-using namespace std;
 #ifndef EX1IRIS_INTERPRETER_H
 #define EX1IRIS_INTERPRETER_H
 #include <iostream>
@@ -11,14 +10,13 @@ using namespace std;
 #include <queue>
 #include <stack>
 #include "ex1.h"
+using namespace std;
 
 class Interpreter {
-    Interpreter(const unordered_map<string, Variable *> &values);
-
-    unordered_map<string, Variable*> values;
+    unordered_map<string, Variable*> *values;
 public:
     Interpreter();
-    Interpreter(unordered_map<string, Variable *> &values);
+    explicit Interpreter(unordered_map<string, Variable*>* values);
 
     void setVariables(const string& variables);
     Expression* interpret(string e);

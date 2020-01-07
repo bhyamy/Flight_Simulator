@@ -35,12 +35,14 @@ ConnectServerCommand::ConnectServerCommand() {}
 }*/
 
 int ConnectServerCommand::execute(vector<string>::iterator iter) {
-    Client* client = new Client(*iter, (int) Data::get_data()->getInterpreter()->interpret(*(++iter))->calculate());
+    string ip = (*iter).substr(1);
+    ip.pop_back();
+    Client* client = new Client(ip, (int) Data::get_data()->getInterpreter()->interpret(*(++iter))->calculate());
     client->run();
     //thread server(&OpenServerCommand::openSocket, this,
     //            (int) Data::get_data()._interpreter.interpret(*iter)->calculate());
     iter++;
-    return 1;
+    return 2;
     /*thread client(&ConnectServerCommand::openSocket, this,
             (int)Data::get_data()._interpreter.interpret(*iter)->calculate(), *(iter++));
     iter++;

@@ -8,7 +8,7 @@
 SetVarCommand::SetVarCommand() = default;
 
 int SetVarCommand::execute(vector<string>::iterator iter) {
-    iter--;
+    iter -= 2;
     auto var_iter = Data::get_data()->getSymbolTable().find(*iter);
     if (var_iter == Data::get_data()->getSymbolTable().end()) {
         throw ("Could not set variable, variable does not exist.");
@@ -20,5 +20,5 @@ int SetVarCommand::execute(vector<string>::iterator iter) {
         Data::get_data()->getOutput().push("set " + var->getSimAddress() + to_string(var->getValue()));
         //TODO thread lock key for output is required
     }
-    return 0; //TODO check if the inner iter ++ advance the outer iter - if not return 2
+    return 1;
 }

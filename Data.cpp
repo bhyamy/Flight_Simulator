@@ -44,7 +44,7 @@ Data::~Data() {
 void Data::make_command_map() {
     _command_table["Print"] = new PrintCommand();
     _command_table["openDataServer"] = new OpenServerCommand();
-    _command_table["connectControlClient"]; new ConnectServerCommand();
+    _command_table["connectControlClient"] = new ConnectServerCommand();
     _command_table["Sleep"] = new SleepCommand();
     _command_table["while"] = new WhileCommand();
     _command_table["if"] = new IfCommand();
