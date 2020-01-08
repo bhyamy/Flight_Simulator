@@ -24,9 +24,10 @@ void Lexer::read_File(string file_name) {
     while (getline(file, line)) {
         curr = 0;
         string str;
+        int line_size = line.size();
         bool first_In_Line = true;
         bool remember_If_While = false;
-        while (line.size() > curr) {
+        while (line_size > curr) {
             if (first_In_Line) {
                 str = line.substr(curr, temp = (line.find_first_of(" ", curr) - curr));
                 if (str == "while" || str == "if") {
@@ -40,6 +41,8 @@ void Lexer::read_File(string file_name) {
                         str = line.substr(curr, temp = (line.find_first_of(",(-<=\"{", curr) - curr));
                     }
                     first_In_Line = false;
+                } else if (str == "}") {
+                    temp = 1;
                 }
                 curr += temp;
                 manage_String(str);
@@ -64,13 +67,13 @@ void Lexer::read_File(string file_name) {
                         curr = last_P;
                         manage_String(str);
                         //if there is no comma, or there is a quote before a comma
-                    } else if (first_C == string::npos || (first_Q < first_C && first_Q != string::npos)) {
+                    } else if (first_C == -1 || (first_Q < first_C && first_Q != -1)) {
                         str = line.substr(first_Q, (temp = line.find_first_of("\"", first_Q + 1) - first_Q) + 1);
                         curr += temp;
                         _vec->push_back(str);
                         curr++;
                         //if there is no quote, or there is a comma before a quote
-                    } else if (first_Q == string::npos || first_C < first_Q) {
+                    } else if (first_Q == -1 || first_C < first_Q) {
                         str = line.substr(curr, first_C - curr);
                         curr += first_C;
                         manage_String(str);
@@ -86,7 +89,7 @@ void Lexer::read_File(string file_name) {
             } else {
                 throw "-1";
             }
-            if (curr < line.size()) {
+            if (curr < line_size) {
                 last_Token = line.substr(curr, 1);
                 if (last_Token == "-" || last_Token == "<") {
                     last_Token = line.substr(curr, 2);
