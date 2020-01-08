@@ -12,7 +12,6 @@ Client::Client(string ip, int port) {
         throw "Could not create client socket";
     }
     //creating a sockaddr to hold the address of the server
-    address;
     address.sin_family = AF_INET;
     address.sin_addr.s_addr = inet_addr(ip.c_str());
     address.sin_port = htons(port);
@@ -34,6 +33,7 @@ bool Client::connection() {
     return is_connect;
 }
 
+//creating a thread after connection was made
 void Client::run() {
     if (connection()) {
         thread* clientThread = new thread(&Client::send_Data, this);
@@ -41,9 +41,7 @@ void Client::run() {
     }
 }
 
-/*Run public
-if connected then ............. call func while parser != finished
-then detach */
+//this function sends data to the server
 void Client::send_Data() {
     while (!Data::get_data()->isParserDone()) {
         while (!Data::get_data()->getOutput().empty()) {
@@ -56,3 +54,6 @@ void Client::send_Data() {
         }
     }
 }
+
+//dtor
+Client::~Client() {}

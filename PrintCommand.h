@@ -15,6 +15,8 @@ class PrintCommand : public Command {
 public:
     int execute(vector<string>::iterator iter) override;
     PrintCommand();
+
+    virtual ~PrintCommand();
 };
 
 

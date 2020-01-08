@@ -14,6 +14,8 @@ class DefineVarCommand : public Command{
 public:
     DefineVarCommand();
     int execute(vector<string>::iterator iter) override;
+
+    virtual ~DefineVarCommand();
 };
 
 

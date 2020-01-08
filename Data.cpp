@@ -19,7 +19,7 @@ Data::Data() {
     _is_parser_done = false;
     make_command_map();
     make_sim_map();
-    _interpreter = new Interpreter(_symbol_table);
+    _interpreter = new Interpreter(&_symbol_table);
 }
 
 void Data::setIsParserDone(bool isParserDone) {
@@ -164,36 +164,33 @@ void Data::make_sim_map() {
     _index_table[35] = _sim_table.at(sim36);
 }
 
+//getters
 unordered_map<string, Command*> &Data::getCommandTable() {
     //todo mutex
     return _command_table;
 }
-
 unordered_map<string, Variable*> &Data::getSimTable() {
     //todo mutex
     return _sim_table;
 }
-
 unordered_map<string, Variable*> &Data::getSymbolTable() {
     //todo mutex
     return _symbol_table;
 }
-
 unordered_map<int, Variable*> &Data::getIndexTable() {
     //todo mutex
     return _index_table;
 }
-
 Interpreter * Data::getInterpreter() {
     //todo mutex
     return _interpreter;
 }
-
 queue<string> &Data::getOutput() {
     //todo mutex
     return _output;
 }
 
+//checks if the parser finished, if yes returns true
 bool Data::isParserDone() {
     return _is_parser_done;
 }

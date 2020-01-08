@@ -4,9 +4,10 @@
 
 #include "Parser.h"
 
-
+//ctor
 Parser::Parser() = default;
 
+//this function iterates through the lexers string vector, identifies commands and executes them
 void Parser::run_commands(Lexer lexer) {
     bool checking_for_set = true;
     auto iter = lexer._vec->begin();
@@ -25,3 +26,6 @@ void Parser::run_commands(Lexer lexer) {
         checking_for_set = true;
     }
 }
+
+//dtor
+Parser::~Parser() {}

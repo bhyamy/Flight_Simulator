@@ -25,6 +25,8 @@ class Server {
 public:
     Server (int port);
     void run();
+
+    virtual ~Server();
 };
 
 

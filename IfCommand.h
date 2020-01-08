@@ -12,6 +12,8 @@ class IfCommand : public BlockCommand {
 public:
     IfCommand();
     int execute(vector<string>::iterator iter) override;
+
+    virtual ~IfCommand();
 };
 
 

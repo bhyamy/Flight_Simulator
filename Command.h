@@ -14,7 +14,10 @@ using namespace std;
 class Command {
 public:
     virtual int execute(vector<string>::iterator iter) = 0;
+
+    virtual ~Command() = default;
 };
+
 
 
 #endif //PROJECT_COMMAND_H

@@ -18,6 +18,8 @@ public:
     Lexer();
     vector<string>* _vec;
     void read_File(string file_name);
+
+    virtual ~Lexer();
 };
 
 

@@ -5,8 +5,13 @@
 #include "Interpreter.h"
 
 //ctor's
+Interpreter::Interpreter(unordered_map<string, Variable *> *values1) : values(values1) {}
+
 Interpreter::Interpreter() {}
-Interpreter::Interpreter(unordered_map<string, Variable*>* values) : values(values) {}
+
+Interpreter::~Interpreter() {
+    delete values;
+}
 
 Expression* Interpreter::interpret(string e) {
     auto* operand_stack = new stack<string>;
@@ -19,7 +24,7 @@ Expression* Interpreter::interpret(string e) {
     regex not_numbers_regex("[^\\d\\.]");
     regex parenthesis ("[\\(\\)]");
     regex parenthesis_close ("\\)");
-    regex boolean_signs("[<>=!]");
+    regex boolean_signs("[<>=!]*");
     int counter = 0;
     for (string::size_type i = 0; i < e.size(); i++) {
         if (e[i] == '(' ) {
@@ -101,7 +106,8 @@ Expression* Interpreter::interpret(string e) {
             current++;
         } else if (regex_match(e.substr(current, 1), numbers_regex)) {
             if (current != 0 && !(regex_match(e.substr(current - 1, 1), operand_regex) &&
-            !regex_match(e.substr(current - 1, 1), parenthesis_close))) {
+            !regex_match(e.substr(current - 1, 1), parenthesis_close)) &&
+            !(regex_match(e.substr(current - 1, 1), boolean_signs))) {
                 throw ("bad input7");
             }
             smatch m;
@@ -112,7 +118,8 @@ Expression* Interpreter::interpret(string e) {
             current += m.position();
         } else if (regex_match(e.substr(current, 1), variable_regex)) {
             if (current != 0 && !(regex_match(e.substr(current - 1, 1), operand_regex) &&
-                  !regex_match(e.substr(current - 1, 1), parenthesis_close))) {
+                  !regex_match(e.substr(current - 1, 1), parenthesis_close)) &&
+                  !(regex_match(e.substr(current - 1, 1), boolean_signs))) {
                 throw ("bad input8");
             }
             smatch m;
@@ -176,8 +183,8 @@ Expression* Interpreter::interpret(string e) {
         } else if (regex_match(first, numbers_regex)) {
             expression_stack->push(new Value(stod(first)));
         } else if (regex_match(first, variable_regex)) {
-            auto iter = values.find(first);
-            if (iter != values.end()) {
+            auto iter = values->find(first);
+            if (iter != values->end()) {
                 expression_stack->push(iter->second);
             } else {
                 throw ("bad input12");
@@ -271,6 +278,8 @@ void Interpreter::setVariables(const string& variables) {
         } catch (invalid_argument) {
             throw ("bad input19");
         }
-        (values[name])->setValue(check_num);
+        ((*values)[name])->setValue(check_num);
     }
 }
+
+

@@ -7,6 +7,7 @@
 //ctor
 PrintCommand::PrintCommand() {}
 
+//this function prints the given string
 int PrintCommand::execute(vector<string>::iterator iter) {
     string str = *iter;
     if (str.front() == '\"') {
@@ -17,5 +18,8 @@ int PrintCommand::execute(vector<string>::iterator iter) {
     }
     return 1;
 }
+
+//dtor
+PrintCommand::~PrintCommand() {}
 
 

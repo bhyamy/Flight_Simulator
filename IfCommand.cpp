@@ -7,6 +7,8 @@
 //ctor
 IfCommand::IfCommand() {}
 
+/*this function activates an if block, first it checks the condition,
+ if true activates the block inside, else continues on commands execution*/
 int IfCommand::execute(vector<string>::iterator iter) {
     string condition = *iter;
     int sum = 1;
@@ -20,3 +22,6 @@ int IfCommand::execute(vector<string>::iterator iter) {
     }
     return sum;
 }
+
+//dtor
+IfCommand::~IfCommand() {}

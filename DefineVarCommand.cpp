@@ -7,6 +7,7 @@
 //ctor
 DefineVarCommand::DefineVarCommand() {}
 
+
 int DefineVarCommand::execute(vector<string>::iterator iter) {
     string name = *iter;
     iter++;
@@ -14,10 +15,12 @@ int DefineVarCommand::execute(vector<string>::iterator iter) {
     iter++;
     string value = *iter;
     iter++;
+    //checks if the variables are normal
     if (sign == "=") {
         Data::get_data()->getSymbolTable()[name] = new Variable(name, Data::get_data()->getInterpreter()->interpret(value)->calculate());
         return 3;
     }
+    //checks if the variables are simulator recognized
     if (sign == "->" || sign == "<-") {
         string sim = (*iter).substr(1);
         sim.pop_back();
@@ -33,3 +36,6 @@ int DefineVarCommand::execute(vector<string>::iterator iter) {
     }
     throw ("ERROR - could not define variable.");
 }
+
+//dtor
+DefineVarCommand::~DefineVarCommand() {}

@@ -4,10 +4,12 @@
 
 #include "BlockCommand.h"
 
+//ctor
 BlockCommand::BlockCommand() {}
 
+//this function executes command block and stops once it recognizes "}"
 int BlockCommand::execute_block(vector<string>::iterator iter) {
-    int return_sum = 1, temp;
+    int return_sum = 0, temp;
     bool checking_for_set = true;
     iter++; // starting after the '{'
     while (*iter != "}") {
@@ -20,6 +22,7 @@ int BlockCommand::execute_block(vector<string>::iterator iter) {
             }
             throw ("Parser could not find command");
         }
+        iter++;
         temp = cmd_iter->second->execute(iter);
         iter += temp;
         return_sum += temp;
@@ -27,3 +30,6 @@ int BlockCommand::execute_block(vector<string>::iterator iter) {
     }
     return return_sum;
 }
+
+//dtor
+BlockCommand::~BlockCommand() {}

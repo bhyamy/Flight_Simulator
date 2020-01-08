@@ -22,6 +22,8 @@ class Client {
 public:
     Client (string ip, int port);
     void run();
+
+    virtual ~Client();
 };
 
 

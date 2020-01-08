@@ -112,3 +112,6 @@ void Lexer::manage_String(string string1) {
         _vec->push_back(string1);
     }
 }
+
+//dtor
+Lexer::~Lexer() {}

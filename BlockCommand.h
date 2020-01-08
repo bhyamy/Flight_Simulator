@@ -17,6 +17,8 @@ public:
 
 public:
     BlockCommand();
+
+    virtual ~BlockCommand();
 };
 
 

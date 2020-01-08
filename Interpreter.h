@@ -15,11 +15,13 @@ using namespace std;
 class Interpreter {
     unordered_map<string, Variable*> *values;
 public:
+    Interpreter(unordered_map<string, Variable *> *values1);
+
     Interpreter();
-    explicit Interpreter(unordered_map<string, Variable*>* values);
 
     void setVariables(const string& variables);
     Expression* interpret(string e);
+
     virtual ~Interpreter();
 
 };

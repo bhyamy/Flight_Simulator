@@ -13,7 +13,6 @@ Server::Server(int port) {
         throw "Could not open socket";
     }
     //creating a sockaddr
-    address;
     address.sin_family = AF_INET;
     address.sin_addr.s_addr = INADDR_ANY;
     address.sin_port = htons(port);
@@ -27,6 +26,7 @@ Server::Server(int port) {
     }
 }
 
+//this function opens thread
 void Server::run() {
     if (this->connect()){
         thread* serverThread = new thread(&Server::readData,this);
@@ -36,28 +36,33 @@ void Server::run() {
 
 bool Server::connect() {
     //accepting the client
-    int client_socket = accept(sock, (struct sockaddr *) &address, (socklen_t *) &address);
+    client_socket = accept(sock, (struct sockaddr *) &address, (socklen_t *) &address);
     //in case of a client accepting error
     if (client_socket == -1) {
         throw "Could not accept the client";
     }
     close(sock);
+    return true;
 }
 
+//this function reads the data as long as the parser is parsing
 void Server::readData() {
     string data;
     int valRead;
     char buffer[1024];
-    while (Data::get_data()->isParserDone()) {
+    while (!Data::get_data()->isParserDone()) {
         valRead = read(client_socket, buffer, 1024);
         data.append(buffer, valRead);
+        //if there are no \n in the buffer, read the whole info from buffer
         while (data.find('\n') == string::npos) {
             int currRead;
             currRead = read(client_socket, buffer, 1024);
             data.append(buffer);
             valRead += currRead;
         }
+        //takes the exact data from the buffer
         string exactData = data.substr(0, data.find('\n'));
+        //deletes all the data from the line after \n
         data.erase(0, data.find('\n') + 1);
         update(exactData);
     }
@@ -74,7 +79,11 @@ void Server::update(string data) {
         if ((var = Data::get_data()->getIndexTable().at(i))->getSimDirection() == "<-") {
             var->setValue(stod(info));
         }
-        curr++;
+        curr += info.size();
+        curr++; //skipping the comma
         i++;
     }
 }
+
+//dtor
+Server::~Server() {}

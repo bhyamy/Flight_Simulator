@@ -11,6 +11,8 @@ class ConnectServerCommand : public Command {
 public:
     int execute(vector<string>::iterator iter) override;
     ConnectServerCommand();
+
+    virtual ~ConnectServerCommand();
 };
 
 

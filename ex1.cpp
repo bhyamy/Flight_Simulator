@@ -23,8 +23,20 @@ Variable::Variable(string name_string, double val) {
     this->name = name_string;
     this->value = val;
 }
-Variable::Variable(const string &name, const string &simAddress, const string &simDirection, double value)
-    : name(name), sim_Address(simAddress), sim_Direction(simDirection), value(value) {}
+Variable::Variable(const string &name1, const string &simAddress, const string &simDirection, double val)
+    : name(name1), sim_Address(simAddress), sim_Direction(simDirection), value(val) {}
+
+Smaller_op::Smaller_op(Expression *leftSide, Expression *rightSide) : BinaryOperator(leftSide, rightSide) {}
+
+Bigger_eq_op::Bigger_eq_op(Expression *leftSide, Expression *rightSide) : BinaryOperator(leftSide, rightSide) {}
+
+Smaller_eq_op::Smaller_eq_op(Expression *leftSide, Expression *rightSide) : BinaryOperator(leftSide, rightSide) {}
+
+Not_eq_op::Not_eq_op(Expression *leftSide, Expression *rightSide) : BinaryOperator(leftSide, rightSide) {}
+
+Equal_op::Equal_op(Expression *leftSide, Expression *rightSide) : BinaryOperator(leftSide, rightSide) {}
+
+Bigger_op::Bigger_op(Expression *leftSide, Expression *rightSide) : BinaryOperator(leftSide, rightSide) {}
 
 //functions
 double Value::calculate() {
@@ -93,18 +105,66 @@ Variable& Variable::operator-=(double x) {
     return *this;
 }
 
+double Smaller_op::calculate() {
+    if (left->calculate() < right->calculate())
+        return 1;
+    return 0;
+}
+
+double Bigger_op::calculate() {
+    if (left->calculate() > right->calculate())
+        return 1;
+    return 0;
+}
+
+double Equal_op::calculate() {
+    if (left->calculate() == right->calculate())
+        return 1;
+    return 0;
+}
+
+double Not_eq_op::calculate() {
+    if (left->calculate() != right->calculate())
+        return 1;
+    return 0;
+}
+
+double Smaller_eq_op::calculate() {
+    if (left->calculate() <= right->calculate())
+        return 1;
+    return 0;
+}
+
+double Bigger_eq_op::calculate() {
+    if (left->calculate() >= right->calculate())
+        return 1;
+    return 0;
+}
+
 //destructors
 UnaryOperator::~UnaryOperator() {
     delete exp;
 }
-
 BinaryOperator::~BinaryOperator() {
     delete left;
     delete right;
 }
-
 Variable::~Variable() {}
+UMinus::~UMinus() {}
+UPlus::~UPlus() {}
+Div::~Div() {}
+Mul::~Mul() {}
+Minus::~Minus() {}
+Plus::~Plus() {}
+Value::~Value() {}
+Smaller_op::~Smaller_op() {}
+Bigger_eq_op::~Bigger_eq_op() {}
+Smaller_eq_op::~Smaller_eq_op() {}
+Bigger_op::~Bigger_op() {}
+Equal_op::~Equal_op() {}
+Not_eq_op::~Not_eq_op() {}
 
+//getters
 const string &Variable::getName() const {
     return name;
 }
@@ -121,8 +181,9 @@ double Variable::getValue() const {
     return value;
 }
 
-void Variable::setName(const string &name) {
-    Variable::name = name;
+//setters
+void Variable::setName(const string &name1) {
+    Variable::name = name1;
 }
 
 void Variable::setSimAddress(const string &simAddress) {
@@ -133,98 +194,6 @@ void Variable::setSimDirection(const string &simDirection) {
     sim_Direction = simDirection;
 }
 
-void Variable::setValue(double value) {
-    Variable::value = value;
-}
-
-
-
-UMinus::~UMinus() {}
-
-UPlus::~UPlus() {}
-
-Div::~Div() {}
-
-Mul::~Mul() {}
-
-Minus::~Minus() {}
-
-Plus::~Plus() {}
-
-Value::~Value() {}
-
-
-
-
-Smaller_op::Smaller_op(Expression *leftSide, Expression *rightSide) : BinaryOperator(leftSide, rightSide) {}
-
-double Smaller_op::calculate() {
-    if (left->calculate() < right->calculate())
-        return 1;
-    return 0;
-}
-
-Smaller_op::~Smaller_op() {
-
-}
-
-Bigger_op::Bigger_op(Expression *leftSide, Expression *rightSide) : BinaryOperator(leftSide, rightSide) {}
-
-double Bigger_op::calculate() {
-   if (left->calculate() > right->calculate())
-       return 1;
-   return 0;
-}
-
-Bigger_op::~Bigger_op() {
-
-
-}
-
-Equal_op::Equal_op(Expression *leftSide, Expression *rightSide) : BinaryOperator(leftSide, rightSide) {}
-
-double Equal_op::calculate() {
-    if (left->calculate() == right->calculate())
-        return 1;
-    return 0;
-}
-
-Equal_op::~Equal_op() {
-
-}
-
-Not_eq_op::Not_eq_op(Expression *leftSide, Expression *rightSide) : BinaryOperator(leftSide, rightSide) {}
-
-double Not_eq_op::calculate() {
-    if (left->calculate() != right->calculate())
-        return 1;
-    return 0;
-}
-
-Not_eq_op::~Not_eq_op() {
-
-}
-
-Smaller_eq_op::Smaller_eq_op(Expression *leftSide, Expression *rightSide) : BinaryOperator(leftSide, rightSide) {}
-
-double Smaller_eq_op::calculate() {
-    if (left->calculate() <= right->calculate())
-        return 1;
-    return 0;
-}
-
-Smaller_eq_op::~Smaller_eq_op() {
-
-}
-
-Bigger_eq_op::Bigger_eq_op(Expression *leftSide, Expression *rightSide) : BinaryOperator(leftSide, rightSide) {}
-
-double Bigger_eq_op::calculate() {
-    if (left->calculate() >= right->calculate())
-        return 1;
-    return 0;
-}
-
-Bigger_eq_op::~Bigger_eq_op() {
-
+void Variable::setValue(double val) {
+    Variable::value = val;
 }

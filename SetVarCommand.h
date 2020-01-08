@@ -14,6 +14,8 @@ class SetVarCommand : public Command{
 public:
     SetVarCommand();
     int execute(vector<string>::iterator iter) override;
+
+    virtual ~SetVarCommand();
 };
 
 

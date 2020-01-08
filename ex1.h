@@ -33,7 +33,7 @@ public:
     //ctor's
     Variable(string name_string, double val);
 
-    Variable(const string &name, const string &simAddress, const string &simDirection, double value);
+    Variable(const string &name1, const string &simAddress, const string &simDirection, double val);
 
     //dtor
     virtual ~Variable();
@@ -43,13 +43,13 @@ public:
     const string &getSimDirection() const;
     double getValue() const;
 
-    void setName(const string &name);
+    void setName(const string &name1);
 
     void setSimAddress(const string &simAddress);
 
     void setSimDirection(const string &simDirection);
 
-    void setValue(double value);
+    void setValue(double val);
 };
 
 class UnaryOperator : public Expression {

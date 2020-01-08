@@ -13,6 +13,8 @@ class SleepCommand : public Command {
 public:
     SleepCommand();
     int execute(vector<string>::iterator iter) override;
+
+    virtual ~SleepCommand();
 };
 
 

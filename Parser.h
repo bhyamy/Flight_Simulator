@@ -13,6 +13,8 @@ class Parser {
 public:
     Parser();
     static void run_commands(Lexer lexer);
+
+    virtual ~Parser();
 };
 
 

@@ -13,6 +13,8 @@ class WhileCommand : public BlockCommand {
 public:
     WhileCommand();
     int execute(vector<string>::iterator iter) override;
+
+    virtual ~WhileCommand();
 };
 
 
