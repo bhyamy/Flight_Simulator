@@ -21,7 +21,7 @@ int WhileCommand::execute(vector<string>::iterator iter) {
         iter++;
         return_sum++;
     }
-    return return_sum;
+    return ++return_sum;
 }
 
 //dtor

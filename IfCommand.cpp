@@ -20,7 +20,7 @@ int IfCommand::execute(vector<string>::iterator iter) {
         iter++;
         sum++;
     }
-    return sum;
+    return ++sum;
 }
 
 //dtor
