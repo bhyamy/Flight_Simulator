@@ -29,10 +29,13 @@ class Data {
     unordered_map<string, Variable*> _sim_table;
     unordered_map<string, Variable*> _symbol_table;
     unordered_map<int, Variable*> _index_table;
+    unordered_map<string, vector<string>::iterator> _func_table;
+
     Interpreter* _interpreter;
     queue<string> _output;
     bool _is_parser_done;
-
+    // mutex
+    mutex symbol_lock;
 
 public:
     static Data* get_data();
@@ -49,6 +52,8 @@ public:
     unordered_map<string, Variable*> &getSymbolTable();
 
     unordered_map<int, Variable*> &getIndexTable();
+
+    unordered_map<string, vector<string>::iterator> &getFuncTable();
 
     Interpreter * getInterpreter();
 

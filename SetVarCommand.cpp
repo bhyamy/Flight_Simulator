@@ -20,7 +20,6 @@ int SetVarCommand::execute(vector<string>::iterator iter) {
     //in case a variable needs to update the simulator
     if (var->getSimDirection() == "->") {
         Data::get_data()->getOutput().push("set " + var->getSimAddress() + " " + to_string(var->getValue()) + "\r\n");
-        //TODO thread lock key for output is required
     }
     return 1;
 }

@@ -28,6 +28,8 @@ void Lexer::read_File(string file_name) {
         bool first_In_Line = true;
         bool remember_If_While = false;
         while (line_size > curr) {
+            while ( line.substr(curr, 1) == " ")
+                curr++;
             if (first_In_Line) {
                 str = line.substr(curr, temp = (line.find_first_of(" ", curr) - curr));
                 if (str == "while" || str == "if") {
@@ -57,29 +59,40 @@ void Lexer::read_File(string file_name) {
                 manage_String(str);
             } else if (last_Token == "(") {
                 int last_P = line.find_last_of(")");
-                //run until the end of the parenthesis
-                while (curr < last_P) {
-                    int first_Q =  line.find_first_of("\"", curr);
-                    int first_C =  line.find_first_of(",", curr);
-                    //if there is no comma or quote
-                    if (first_C == first_Q) {
-                        str = line.substr(curr, last_P - curr);
-                        curr = last_P;
-                        manage_String(str);
-                        //if there is no comma, or there is a quote before a comma
-                    } else if (first_C == -1 || (first_Q < first_C && first_Q != -1)) {
-                        str = line.substr(first_Q, (temp = line.find_first_of("\"", first_Q + 1) - first_Q) + 1);
-                        curr += temp;
-                        _vec->push_back(str);
-                        curr++;
-                        //if there is no quote, or there is a comma before a quote
-                    } else if (first_Q == -1 || first_C < first_Q) {
-                        str = line.substr(curr, first_C - curr);
-                        curr += first_C;
-                        manage_String(str);
+                string str1, str2;
+                str1 = line.substr(curr, 3);
+                if (str1 == "var") {
+                    curr += 4;
+                    str2 = line.substr(curr, last_P - curr);
+                    manage_String(str1);
+                    manage_String(str2);
+                    curr = last_P;
+                    curr++;
+                } else {
+                    //run until the end of the parenthesis
+                    while (curr < last_P) {
+                        int first_Q =  line.find_first_of("\"", curr);
+                        int first_C =  line.find_first_of(",", curr);
+                        //if there is no comma or quote
+                        if (first_C == first_Q) {
+                            str = line.substr(curr, last_P - curr);
+                            curr = last_P;
+                            manage_String(str);
+                            //if there is no comma, or there is a quote before a comma
+                        } else if (first_C == -1 || (first_Q < first_C && first_Q != -1)) {
+                            str = line.substr(first_Q, (temp = line.find_first_of("\"", first_Q + 1) - first_Q) + 1);
+                            curr += temp;
+                            _vec->push_back(str);
+                            curr++;
+                            //if there is no quote, or there is a comma before a quote
+                        } else if (first_Q == -1 || first_C < first_Q) {
+                            str = line.substr(curr, first_C - curr);
+                            curr += first_C;
+                            manage_String(str);
+                            curr++;
+                        }
                         curr++;
                     }
-                    curr++;
                 }
             } else if (last_Token == "->" || last_Token == "<-") {
                 _vec->push_back(last_Token);
@@ -87,13 +100,16 @@ void Lexer::read_File(string file_name) {
                 curr += temp;
                 manage_String(str);
             } else {
-                throw "-1";
+                throw "Could not read file.";
             }
             if (curr < line_size) {
                 last_Token = line.substr(curr, 1);
                 if (last_Token == "-" || last_Token == "<") {
                     last_Token = line.substr(curr, 2);
                     curr++;
+                } else if (last_Token == " " && !first_In_Line) {
+                    curr++;
+                    last_Token = line.substr(curr, 1);
                 }
                 if (last_Token == "{") {
                     _vec->push_back(last_Token);

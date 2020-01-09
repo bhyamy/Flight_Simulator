@@ -17,7 +17,8 @@ int DefineVarCommand::execute(vector<string>::iterator iter) {
     iter++;
     //checks if the variables are normal
     if (sign == "=") {
-        Data::get_data()->getSymbolTable()[name] = new Variable(name, Data::get_data()->getInterpreter()->interpret(value)->calculate());
+        Data::get_data()->getSymbolTable()[name] =
+                new Variable(name, Data::get_data()->getInterpreter()->interpret(value)->calculate());
         return 3;
     }
     //checks if the variables are simulator recognized

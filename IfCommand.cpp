@@ -14,11 +14,11 @@ int IfCommand::execute(vector<string>::iterator iter) {
     int sum = 1;
     iter++;
     if (Data::get_data()->getInterpreter()->interpret(condition)->calculate()) {
+        execute_block(iter);
+    }
+    while (*iter != "}") {
         iter++;
-        sum += execute_block(iter);
-    } else {
-        while (*iter != "}")
-            sum++;
+        sum++;
     }
     return sum;
 }

@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include <mutex>
 #include "Expression.h"
 
 
@@ -21,6 +22,7 @@ class Variable : public Expression {
     string sim_Address;
     string sim_Direction;
     double value;
+    mutex var_lock;
 
 public:
     Variable&operator++();
@@ -41,7 +43,7 @@ public:
     const string &getName() const;
     const string &getSimAddress() const;
     const string &getSimDirection() const;
-    double getValue() const;
+    const double &getValue() const;
 
     void setName(const string &name1);
 

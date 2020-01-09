@@ -14,12 +14,27 @@ void Parser::run_commands(Lexer lexer) {
     while (iter != lexer._vec->end()) {
         auto cmd_iter = Data::get_data()->getCommandTable().find(*iter);
         if (cmd_iter == Data::get_data()->getCommandTable().end()) {
-            if (checking_for_set) {
+            auto func_iter = Data::get_data()->getFuncTable().find(*iter);
+            if (func_iter == Data::get_data()->getFuncTable().end()) {
                 iter++;
-                checking_for_set = false;
-                continue;
+                if (*iter == "var") {
+                    iter--;
+                    Data::get_data()->getFuncTable()[*iter] = (iter++);
+                    while (*iter != "}")
+                        iter++;
+                    iter++;
+                    continue;
+                } else {
+                    if (checking_for_set) {
+                        checking_for_set = false;
+                        continue;
+                    }
+                    throw ("Parser could not find command");
+                }
+            } else {
+               //found it - activate funcCommand
+                cmd_iter = Data::get_data()->getCommandTable().find("func");
             }
-            throw ("Parser could not find command");
         }
         iter++;
         iter += cmd_iter->second->execute(iter);

@@ -11,7 +11,7 @@
 #include "WhileCommand.h"
 #include "IfCommand.h"
 #include "SetVarCommand.h"
-
+#include "FuncCommand.h"
 
 
 //ctor
@@ -50,6 +50,7 @@ void Data::make_command_map() {
     _command_table["if"] = new IfCommand();
     _command_table["var"] = new DefineVarCommand();
     _command_table["="] = new SetVarCommand();
+    _command_table["func"] = new FuncCommand();
 }
 
 //this function creates and initializes the sim map variables
@@ -166,23 +167,21 @@ void Data::make_sim_map() {
 
 //getters
 unordered_map<string, Command*> &Data::getCommandTable() {
-    //todo mutex
     return _command_table;
 }
 unordered_map<string, Variable*> &Data::getSimTable() {
-    //todo mutex
     return _sim_table;
 }
 unordered_map<string, Variable*> &Data::getSymbolTable() {
-    //todo mutex
     return _symbol_table;
 }
 unordered_map<int, Variable*> &Data::getIndexTable() {
-    //todo mutex
     return _index_table;
 }
+unordered_map<string, vector<string>::iterator> &Data::getFuncTable() {
+    return _func_table;
+}
 Interpreter * Data::getInterpreter() {
-    //todo mutex
     return _interpreter;
 }
 queue<string> &Data::getOutput() {
@@ -194,3 +193,4 @@ queue<string> &Data::getOutput() {
 bool Data::isParserDone() {
     return _is_parser_done;
 }
+

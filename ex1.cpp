@@ -177,23 +177,31 @@ const string &Variable::getSimDirection() const {
     return sim_Direction;
 }
 
-double Variable::getValue() const {
+const double &Variable::getValue() const {
     return value;
 }
 
 //setters
 void Variable::setName(const string &name1) {
+    var_lock.lock();
     Variable::name = name1;
+    var_lock.unlock();
 }
 
 void Variable::setSimAddress(const string &simAddress) {
+    var_lock.lock();
     sim_Address = simAddress;
+    var_lock.unlock();
 }
 
 void Variable::setSimDirection(const string &simDirection) {
+    var_lock.lock();
     sim_Direction = simDirection;
+    var_lock.unlock();
 }
 
 void Variable::setValue(double val) {
+    var_lock.lock();
     Variable::value = val;
+    var_lock.unlock();
 }
