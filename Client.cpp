@@ -53,6 +53,7 @@ void Client::send_Data() {
             }
         }
     }
+    close(sock);
 }
 
 //dtor
