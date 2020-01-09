@@ -12,15 +12,25 @@ This program acts both as a server and and as a client to the simulator:
 
 1. Download the FlightGear Simulator from the official website: [https://www.flightgear.org/](https://www.flightgear.org/) (Linux version)
 2. Inside the FlightGear program add these commands in Settings->Additional Settings:
--  --telnet=socket,in,10,127.0.0.1,5402,tcp‬‬ --httpd=8080
--  --generic=socket,out,10,127.0.0.1,5400,tcp,generic_small
+```
+--telnet=socket,in,10,127.0.0.1,5402,tcp‬‬ --httpd=8080
+```
+```
+--generic=socket,out,10,127.0.0.1,5400,tcp,generic_small
+```
 3. Plant "generic_small.xml" to "‫‪‫‪data/protocol‬‬‬‬" inside the flightgear folder
 4. Download the files from git and put them all in the same folder
 
 ## Compilation
 1. Run the following commands in Linux terminal:
-- g++ -std=c++14 *.cpp -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic -o fly -pthread 
-- ./fly 
+```
+g++ -std=c++14 *.cpp -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic -o fly -pthread
+```
+```
+./fly (file_name)
+```
+   file name should be `fly.txt` or `fly_with_func.txt`
+
 2. Start the FlightGear by pressing "Fly!"
 
 
